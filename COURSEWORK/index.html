@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="white" />
-    <meta name="description" content="Начало проекта интерактивной карты научных экспедиций." />
+    <meta name="description" content="Интерактивная карта маршрутов и мест наблюдений научных экспедиций." />
     <title>Маршруты научных открытий</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,11 +16,16 @@
     <main class="page">
       <header class="masthead">
         <h1>Маршруты <span>научных открытий</span></h1>
-        <div class="project-status">КАРТА В РАЗРАБОТКЕ · v0.2</div>
+          <div class="project-status">КАРТА В РАЗРАБОТКЕ · v0.3</div>
       </header>
       <div class="workspace">
-        <aside class="expedition-panel" aria-label="История экспедиций и участники">
-          <p>Скоро</p>
+        <aside class="expedition-panel" aria-label="Экспедиции">
+          <div class="panel-heading">
+            <h2>Экспедиции</h2>
+            <p class="panel-caption">Исследования и маршруты</p>
+          </div>
+          <div id="expedition-list" class="expedition-list" aria-label="Список экспедиций" aria-live="polite">Загрузка...</div>
+          <div id="expedition-details" class="expedition-details" aria-live="polite"></div>
         </aside>
         <section class="map-frame" aria-label="Интерактивная карта научных экспедиций">
           <div id="map"></div>
