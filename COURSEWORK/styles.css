@@ -16,20 +16,24 @@
 
 body {
   min-width: 320px;
+  height: 100vh;
   min-height: 100vh;
   margin: 0;
+  overflow: hidden;
 }
 
 .page {
-  min-height: 100svh;
+  height: 100svh;
+  min-height: 0;
   display: grid;
-  grid-template-rows: auto minmax(380px, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
   gap: 22px;
   padding: 0 26px 26px;
+  overflow: hidden;
 }
 
 .workspace {
-  min-height: 380px;
+  min-height: 0;
   display: grid;
   grid-template-columns: minmax(200px, 0.34fr) minmax(0, 1fr);
   gap: 16px;
@@ -86,7 +90,7 @@ h1 span {
 }
 
 .map-frame {
-  min-height: 380px;
+  min-height: 0;
   position: relative;
   overflow: hidden;
   border: 1px solid gray;
@@ -96,22 +100,228 @@ h1 span {
 
 .expedition-panel {
   min-height: 0;
-  display: grid;
-  place-items: center;
-  border: 1px solid #a6a6a6;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  padding: 20px 18px;
+  border: 1px solid darkgray;
   border-radius: 3px;
-  color: gray;
-  background: #f5f6f5;
+  color: darkslategray;
+  background: whitesmoke;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
-.expedition-panel p {
+.panel-heading p,
+.expedition-details p {
   margin: 0;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.panel-caption {
+  margin-top: 6px !important;
+  color: dimgray;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.expedition-list {
+  display: grid;
+  gap: 8px;
+  color: dimgray;
+  font-size: 13px;
+}
+
+.expedition-option {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid silver;
+  border-left: 3px solid sienna;
+  border-radius: 3px;
+  color: darkslategray;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.expedition-option:hover,
+.expedition-option[aria-pressed='true'] {
+  border-color: teal;
+  border-left-color: teal;
+  background: honeydew;
+}
+
+.expedition-option-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.expedition-option-meta {
+  color: dimgray;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.expedition-details {
+  display: grid;
+  gap: 12px;
+}
+
+.detail-title {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.detail-meta,
+.detail-description {
+  margin: 0;
+  color: dimgray;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.detail-meta {
+  color: teal;
+  font-weight: 600;
+}
+
+.section-title {
+  margin: 8px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+}
+
+.expedition-figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid silver;
+  border-radius: 3px;
+  background: white;
+}
+
+.expedition-figure img {
+  display: block;
+  width: 100%;
+  max-height: 190px;
+  object-fit: cover;
+  background: gainsboro;
+}
+
+.expedition-figure.image-unavailable img {
+  display: none;
+}
+
+.expedition-figure figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  color: dimgray;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.expedition-figure a,
+.data-source,
+.participant-biography a {
+  color: teal;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.participant-list {
+  display: grid;
+  gap: 7px;
+}
+
+.participant-option {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px;
+  border: 1px solid silver;
+  border-radius: 3px;
+  color: darkslategray;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.participant-option:hover,
+.participant-option[aria-expanded='true'] {
+  border-color: teal;
+  background: honeydew;
+}
+
+.participant-option img {
+  width: 44px;
+  height: 50px;
+  border-radius: 2px;
+  object-fit: cover;
+  background: gainsboro;
+}
+
+.participant-identity {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.participant-identity strong {
+  font-size: 12px;
+}
+
+.participant-identity span {
+  color: dimgray;
+}
+
+.participant-biography {
+  padding: 10px;
+  border-left: 3px solid teal;
+  background: white;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.participant-biography h5,
+.participant-biography p {
+  margin: 0 0 7px;
+}
+
+.participant-biography h5 {
+  font-size: 12px;
+}
+
+.participant-biography .image-credit {
+  display: block;
+  margin-top: 7px;
+  color: dimgray;
+  font-size: 10px;
+}
+
+.data-source {
+  font-size: 11px;
+  line-height: 1.45;
 }
 
 #map {
   width: 100%;
   height: 100%;
-  min-height: 380px;
+  min-height: 0;
 }
 
 .leaflet-container {
@@ -142,25 +352,45 @@ h1 span {
 
 .coordinate-readout {
   padding: 2px 5px 1px;
-  border: 2px solid #777;
+  border: 2px solid gray;
   border-top: none;
   overflow: hidden;
-  color: #222;
-  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  background: white;
   font: 11px/1.1 'DM Sans', sans-serif;
   white-space: nowrap;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 760px) {
+  body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   .page {
-    grid-template-rows: auto minmax(380px, 1fr);
+    height: auto;
+    min-height: 100svh;
+    grid-template-rows: auto auto;
     gap: 16px;
     padding: 0 14px 14px;
+    overflow: visible;
   }
 
   .workspace {
-    grid-template-columns: minmax(140px, 0.34fr) minmax(0, 1fr);
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(240px, 42svh) minmax(55svh, 1fr);
     gap: 12px;
+  }
+
+  .map-frame {
+    min-height: 55svh;
+  }
+
+  #map {
+    height: 55svh;
+    min-height: 55svh;
   }
 
   .masthead {
@@ -181,23 +411,22 @@ h1 span {
     font-size: 9px;
   }
 
-  #map {
-    min-height: 360px;
-  }
 }
 
 @media (max-width: 360px) {
   .page {
-    grid-template-rows: auto minmax(520px, 1fr);
+    grid-template-rows: auto auto;
   }
 
   .workspace {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(140px, 0.35fr) minmax(360px, 1fr);
+    grid-template-rows: minmax(220px, 42svh) minmax(55svh, 1fr);
     gap: 12px;
   }
 
   .expedition-panel {
-    min-height: 140px;
+    min-height: 0;
+    gap: 14px;
+    padding: 14px;
   }
 }
