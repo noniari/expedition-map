@@ -1,0 +1,89 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "expeditionId": "discovery-expedition",
+        "kind": "route",
+        "name": "Британская антарктическая экспедиция Discovery",
+        "region": "Антарктида и Южный океан",
+        "period": "1901–1904",
+        "color": "#c14f32",
+        "description": "Первая официальная британская антарктическая экспедиция XX века. Экспедиция исследовала побережье Антарктиды и район моря Росса; Роберт Фалкон Скотт командовал судном Discovery, а участники проводили географические, геологические и биологические наблюдения.",
+        "source": {
+          "label": "Британская антарктическая экспедиция — Википедия",
+          "url": "https://ru.wikipedia.org/wiki/Британская_антарктическая_экспедиция_(1901—1904)"
+        },
+        "images": {
+          "ship": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Discovery_alongside_Barrier.jpg/960px-Discovery_alongside_Barrier.jpg",
+            "width": 1323,
+            "height": 921,
+            "alt": "Судно Discovery у антарктического ледяного барьера",
+            "caption": "Discovery у ледяного барьера",
+            "credit": "Иллюстрация: Wikimedia Commons · общественное достояние",
+            "wikipedia": "https://ru.wikipedia.org/wiki/Британская_антарктическая_экспедиция_(1901—1904)"
+          },
+          "place": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/A_panoramic_view_of_the_station_showing_some_of_the_buildings_and_petroleum-oil-lubricants_storage_tanks._The_building_in_the_center_foreground_is_the_Discovery_hut%2C_built_during_Ca_-_DPLA_-_7fc95a793e55f01b20f09761822c2166.jpeg/960px-thumbnail.jpeg",
+            "width": 2820,
+            "height": 1900,
+            "alt": "Хижина Discovery на станции Мак-Мердо в Антарктиде",
+            "caption": "Хижина Discovery на острове Росса",
+            "credit": "Фото: Wikimedia Commons · общественное достояние",
+            "wikipedia": "https://ru.wikipedia.org/wiki/Британская_антарктическая_экспедиция_(1901—1904)"
+          }
+        },
+        "participants": [
+          {
+            "name": "Роберт Фалкон Скотт",
+            "role": "Командир экспедиции",
+            "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Scott_of_the_Antarctic_%28bw%29_%28cropped%29.jpg/330px-Scott_of_the_Antarctic_%28bw%29_%28cropped%29.jpg",
+            "imageAlt": "Портрет Роберта Фалкона Скотта",
+            "biography": "Британский морской офицер и полярный исследователь. Руководил экспедицией Discovery, участвовал в санном походе на юг и позднее возглавил экспедицию Terra Nova.",
+            "wikipedia": "https://ru.wikipedia.org/wiki/Скотт,_Роберт"
+          },
+          {
+            "name": "Эрнест Шеклтон",
+            "role": "Младший офицер и исследователь",
+            "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Ernest_Shackleton_before_1909.jpg/330px-Ernest_Shackleton_before_1909.jpg",
+            "imageAlt": "Портрет Эрнеста Шеклтона",
+            "biography": "Англо-ирландский полярный исследователь. В экспедиции Discovery участвовал в южном санном походе вместе со Скоттом и Уилсоном; позднее возглавил собственные антарктические экспедиции.",
+            "wikipedia": "https://ru.wikipedia.org/wiki/Шеклтон,_Эрнест"
+          },
+          {
+            "name": "Эдвард Уилсон",
+            "role": "Врач, натуралист и художник",
+            "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Edward_A._Wilson.jpg/330px-Edward_A._Wilson.jpg",
+            "imageAlt": "Портрет Эдварда Уилсона",
+            "biography": "Английский врач, натуралист, орнитолог и художник. Участвовал в южном походе вместе со Скоттом и Шеклтоном, вёл наблюдения и создавал зарисовки антарктической природы.",
+            "wikipedia": "https://ru.wikipedia.org/wiki/Уилсон,_Эдвард_Адриан"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [-1.3, 50.76],
+            [18.4241, -33.9249],
+            [172.72, -43.6],
+            [170.23, -71.28],
+            [166.67, -77.84]
+          ],
+          [
+            [166.67, -77.84],
+            [172.72, -43.6]
+          ]
+        ]
+      }
+    },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Коус, остров Уайт", "date": "август 1901", "description": "Начало антарктического плавания судна Discovery.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [-1.3, 50.76] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Кейптаун", "date": "1901", "description": "Остановка на пути из Великобритании в Новую Зеландию.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [18.4241, -33.9249] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Литтелтон", "date": "1901 и 1904", "description": "Discovery прибыла в порт в 1901 году и отправилась отсюда к Антарктиде. После освобождения изо льдов судно вернулось в Новую Зеландию в 1904 году.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [172.72, -43.6] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Мыс Адэр", "date": "1902", "description": "Один из районов антарктического побережья, обследованных экспедицией.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [170.23, -71.28] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Зимовочная база Discovery", "date": "1902–1904", "description": "Судно оказалось во льдах пролива Мак-Мердо; экспедиция провела здесь две зимовки. Хижина Discovery была построена на острове Росса.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [166.67, -77.84] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Южный предел санного похода", "date": "конец декабря 1902", "description": "Скотт, Шеклтон и Уилсон достигли южного предела похода. В источниках приводятся значения 82°11′ и 82°17′; точка отмечена приблизительно. Это полевая отметка, а не место стоянки судна.", "color": "#c14f32" }, "geometry": { "type": "Point", "coordinates": [164.1, -82.2] } }
+  ]
+}
