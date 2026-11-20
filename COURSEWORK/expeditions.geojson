@@ -9,7 +9,7 @@
         "name": "Британская антарктическая экспедиция Discovery",
         "region": "Антарктида и Южный океан",
         "period": "1901–1904",
-        "color": "#c14f32",
+        "color": "sienna",
         "description": "Первая официальная британская антарктическая экспедиция XX века. Экспедиция исследовала побережье Антарктиды и район моря Росса; Роберт Фалкон Скотт командовал судном Discovery, а участники проводили географические, геологические и биологические наблюдения.",
         "source": {
           "label": "Британская антарктическая экспедиция — Википедия",
@@ -79,11 +79,77 @@
         ]
       }
     },
-    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Коус, остров Уайт", "date": "август 1901", "description": "Начало антарктического плавания судна Discovery.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [-1.3, 50.76] } },
-    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Кейптаун", "date": "1901", "description": "Остановка на пути из Великобритании в Новую Зеландию.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [18.4241, -33.9249] } },
-    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Литтелтон", "date": "1901 и 1904", "description": "Discovery прибыла в порт в 1901 году и отправилась отсюда к Антарктиде. После освобождения изо льдов судно вернулось в Новую Зеландию в 1904 году.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [172.72, -43.6] } },
-    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Мыс Адэр", "date": "1902", "description": "Один из районов антарктического побережья, обследованных экспедицией.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [170.23, -71.28] } },
-    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Зимовочная база Discovery", "date": "1902–1904", "description": "Судно оказалось во льдах пролива Мак-Мердо; экспедиция провела здесь две зимовки. Хижина Discovery была построена на острове Росса.", "color": "#087e83" }, "geometry": { "type": "Point", "coordinates": [166.67, -77.84] } },
-    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Южный предел санного похода", "date": "конец декабря 1902", "description": "Скотт, Шеклтон и Уилсон достигли южного предела похода. В источниках приводятся значения 82°11′ и 82°17′; точка отмечена приблизительно. Это полевая отметка, а не место стоянки судна.", "color": "#c14f32" }, "geometry": { "type": "Point", "coordinates": [164.1, -82.2] } }
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Коус, остров Уайт", "date": "август 1901", "description": "Начало антарктического плавания судна Discovery.", "color": "teal" }, "geometry": { "type": "Point", "coordinates": [-1.3, 50.76] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Кейптаун", "date": "1901", "description": "Остановка на пути из Великобритании в Новую Зеландию.", "color": "teal" }, "geometry": { "type": "Point", "coordinates": [18.4241, -33.9249] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Литтелтон", "date": "1901 и 1904", "description": "Discovery прибыла в порт в 1901 году и отправилась отсюда к Антарктиде. После освобождения изо льдов судно вернулось в Новую Зеландию в 1904 году.", "color": "teal" }, "geometry": { "type": "Point", "coordinates": [172.72, -43.6] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Мыс Адэр", "date": "1902", "description": "Один из районов антарктического побережья, обследованных экспедицией.", "color": "teal" }, "geometry": { "type": "Point", "coordinates": [170.23, -71.28] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Зимовочная база Discovery", "date": "1902–1904", "description": "Судно оказалось во льдах пролива Мак-Мердо; экспедиция провела здесь две зимовки. Хижина Discovery была построена на острове Росса.", "color": "teal", "markerType": "base" }, "geometry": { "type": "Point", "coordinates": [166.67, -77.84] } },
+    { "type": "Feature", "properties": { "expeditionId": "discovery-expedition", "kind": "observation", "title": "Южный предел санного похода", "date": "конец декабря 1902", "description": "Скотт, Шеклтон и Уилсон достигли южного предела похода. В источниках приводятся значения 82°11′ и 82°17′; точка отмечена приблизительно. Это полевая отметка, а не место стоянки судна.", "color": "sienna", "markerType": "finish" }, "geometry": { "type": "Point", "coordinates": [164.1, -82.2] } },
+    {
+      "type": "Feature",
+      "properties": {
+        "expeditionId": "commonwealth-trans-antarctic",
+        "kind": "route",
+        "name": "Британская экспедиция Содружества через Антарктиду",
+        "region": "Антарктида",
+        "period": "1955–1958",
+        "color": "steelblue",
+        "description": "Экспедиция Содружества осуществила первую сухопутную переправу через Антарктиду. Под руководством сэра Вивиана Фукса группа вышла из моря Уэдделла, пересекла Южный полюс и достигла моря Росса; отряд Эдмунда Хиллари поддерживал экспедицию с базы на море Росса.",
+        "source": {
+          "label": "Экспедиция Содружества — поиск в русской Википедии",
+          "url": "https://ru.wikipedia.org/w/index.php?title=Служебная%3AПоиск&search=экспедиция+Содружества+через+Антарктиду"
+        },
+        "images": {
+          "ship": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Tractors_in_Antarctica_%281957%29.JPG/960px-Tractors_in_Antarctica_%281957%29.JPG",
+            "width": 960,
+            "height": 640,
+            "alt": "Тракторы экспедиции в Антарктиде",
+            "caption": "Транспорт экспедиции на антарктическом льду",
+            "credit": "Фото: Wikimedia Commons",
+            "wikipedia": "https://ru.wikipedia.org/w/index.php?title=Служебная%3AПоиск&search=экспедиция+Содружества+через+Антарктиду"
+          },
+          "place": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Corp2401_-_Flickr_-_NOAA_Photo_Library.jpg/960px-Corp2401_-_Flickr_-_NOAA_Photo_Library.jpg",
+            "width": 960,
+            "height": 640,
+            "alt": "Ледяная поверхность Антарктиды",
+            "caption": "Маршрут проходил через ледяные плато Антарктиды",
+            "credit": "Фото: NOAA / Wikimedia Commons",
+            "wikipedia": "https://ru.wikipedia.org/w/index.php?title=Служебная%3AПоиск&search=экспедиция+Содружества+через+Антарктиду"
+          }
+        },
+        "participants": [
+          {
+            "name": "Вивиан Фукс",
+ "role": "Руководитель экспедиции",
+            "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Sir_Vivian_Fuchs%2C_1958_%28cropped%29.jpg/330px-Sir_Vivian_Fuchs%2C_1958_%28cropped%29.jpg",
+            "imageAlt": "Портрет сэра Вивиана Фукса",
+            "biography": "Британский геолог и полярный исследователь. Руководил главным отрядом экспедиции от моря Уэдделла через Южный полюс до моря Росса.",
+            "wikipedia": "https://ru.wikipedia.org/wiki/Фукс,_Вивиан"
+          },
+          {
+            "name": "Эдмунд Хиллари",
+            "role": "Руководитель группы Новой Зеландии",
+            "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Edmund_Hillary%2C_c._1953%2C_autograph_removed.jpg/330px-Edmund_Hillary%2C_c._1953%2C_autograph_removed.jpg",
+            "imageAlt": "Портрет Эдмунда Хиллари",
+            "biography": "Новозеландский альпинист и исследователь. Руководил отрядом со стороны моря Росса и проложил маршрут со складами до района Южного полюса.",
+            "wikipedia": "https://ru.wikipedia.org/wiki/Хиллари,_Эдмунд"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-37.0, -77.0],
+          [-45.0, -82.0],
+          [0.0, -84.95],
+          [166.7, -77.85]
+        ]
+      }
+    },
+    { "type": "Feature", "properties": { "expeditionId": "commonwealth-trans-antarctic", "kind": "observation", "title": "Бухта Шеклтона", "date": "1957", "description": "Стартовая база экспедиции на побережье моря Уэдделла.", "color": "steelblue", "markerType": "base" }, "geometry": { "type": "Point", "coordinates": [-37.0, -77.0] } },
+    { "type": "Feature", "properties": { "expeditionId": "commonwealth-trans-antarctic", "kind": "observation", "title": "Южный полюс", "date": "19 января 1958", "description": "Главный отряд достиг Южного полюса в ходе первой сухопутной переправы через Антарктиду. На карте точка приближена к видимой границе Антарктиды, чтобы значок полностью помещался на экране.", "color": "steelblue", "markerType": "finish" }, "geometry": { "type": "Point", "coordinates": [0.0, -84.95] } },
+    { "type": "Feature", "properties": { "expeditionId": "commonwealth-trans-antarctic", "kind": "observation", "title": "Скотт-Бейс", "date": "2 марта 1958", "description": "Финишная база на острове Росса и в море Росса.", "color": "steelblue", "markerType": "base" }, "geometry": { "type": "Point", "coordinates": [166.77, -77.85] } }
   ]
 }
