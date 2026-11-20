@@ -105,10 +105,10 @@ h1 span {
   align-items: stretch;
   gap: 20px;
   padding: 20px 18px;
-  border: 1px solid darkgray;
+  border: 1px solid gray;
   border-radius: 3px;
-  color: darkslategray;
-  background: whitesmoke;
+  color: gray;
+  background: white;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -127,7 +127,7 @@ h1 span {
 
 .panel-caption {
   margin-top: 6px !important;
-  color: dimgray;
+  color: gray;
   font-size: 12px;
   line-height: 1.45;
 }
@@ -135,8 +135,58 @@ h1 span {
 .expedition-list {
   display: grid;
   gap: 8px;
-  color: dimgray;
+  color: gray;
   font-size: 13px;
+}
+
+.expedition-controls {
+  display: grid;
+  gap: 7px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  background: white;
+  font-size: 11px;
+}
+
+.expedition-controls label {
+  color: gray;
+  font-weight: 600;
+}
+
+.expedition-controls input,
+.expedition-controls select {
+  width: 100%;
+  min-height: 34px;
+  padding: 7px 8px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  color: gray;
+  background: white;
+  font: inherit;
+}
+
+.expedition-controls input:focus,
+.expedition-controls select:focus,
+.expedition-reset:focus-visible,
+.expedition-option:focus-visible {
+  outline: 2px solid teal;
+  outline-offset: 2px;
+}
+
+.expedition-reset {
+  min-height: 34px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  color: gray;
+  background: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.expedition-reset:hover {
+  border-color: teal;
+  background: honeydew;
 }
 
 .expedition-option {
@@ -144,10 +194,10 @@ h1 span {
   gap: 6px;
   width: 100%;
   padding: 12px;
-  border: 1px solid silver;
+  border: 1px solid lightgray;
   border-left: 3px solid sienna;
   border-radius: 3px;
-  color: darkslategray;
+  color: gray;
   background: white;
   text-align: left;
   cursor: pointer;
@@ -166,7 +216,7 @@ h1 span {
 }
 
 .expedition-option-meta {
-  color: dimgray;
+  color: gray;
   font-size: 11px;
   line-height: 1.4;
 }
@@ -186,7 +236,7 @@ h1 span {
 .detail-meta,
 .detail-description {
   margin: 0;
-  color: dimgray;
+  color: gray;
   font-size: 12px;
   line-height: 1.5;
 }
@@ -205,7 +255,7 @@ h1 span {
 .expedition-figure {
   margin: 0;
   overflow: hidden;
-  border: 1px solid silver;
+  border: 1px solid lightgray;
   border-radius: 3px;
   background: white;
 }
@@ -215,7 +265,7 @@ h1 span {
   width: 100%;
   max-height: 190px;
   object-fit: cover;
-  background: gainsboro;
+  background: lightgray;
 }
 
 .expedition-figure.image-unavailable img {
@@ -226,7 +276,7 @@ h1 span {
   display: grid;
   gap: 4px;
   padding: 8px;
-  color: dimgray;
+  color: gray;
   font-size: 10px;
   line-height: 1.4;
 }
@@ -251,9 +301,9 @@ h1 span {
   gap: 10px;
   width: 100%;
   padding: 7px;
-  border: 1px solid silver;
+  border: 1px solid lightgray;
   border-radius: 3px;
-  color: darkslategray;
+  color: gray;
   background: white;
   text-align: left;
   cursor: pointer;
@@ -270,7 +320,7 @@ h1 span {
   height: 50px;
   border-radius: 2px;
   object-fit: cover;
-  background: gainsboro;
+  background: lightgray;
 }
 
 .participant-identity {
@@ -286,7 +336,7 @@ h1 span {
 }
 
 .participant-identity span {
-  color: dimgray;
+  color: gray;
 }
 
 .participant-biography {
@@ -309,7 +359,7 @@ h1 span {
 .participant-biography .image-credit {
   display: block;
   margin-top: 7px;
-  color: dimgray;
+  color: gray;
   font-size: 10px;
 }
 
@@ -361,6 +411,81 @@ h1 span {
   white-space: nowrap;
 }
 
+.map-legend {
+  min-width: 184px;
+  padding: 8px 10px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  color: gray;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.map-legend strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.legend-marker {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  background: teal;
+  box-shadow: 0 0 0 1px gray;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.legend-marker.route {
+  border-radius: 1px;
+  color: sienna;
+  background: sienna;
+  box-shadow: none;
+}
+
+.legend-marker.base {
+  background: teal;
+}
+
+.legend-marker.finish {
+  background: sienna;
+}
+
+.leaflet-marker-icon.map-marker-icon {
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  line-height: 24px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.leaflet-marker-icon.map-marker-icon.base-marker {
+  background: teal;
+}
+
+.leaflet-marker-icon.map-marker-icon.finish-marker {
+  background: sienna;
+}
+
 @media (max-width: 760px) {
   body {
     height: auto;
@@ -380,8 +505,16 @@ h1 span {
   .workspace {
     min-height: 0;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(240px, 42svh) minmax(55svh, 1fr);
+    grid-template-rows: minmax(55svh, 55svh) minmax(55svh, 1fr);
     gap: 12px;
+  }
+
+  .map-frame {
+    grid-row: 1;
+  }
+
+  .expedition-panel {
+    grid-row: 2;
   }
 
   .map-frame {
@@ -420,7 +553,7 @@ h1 span {
 
   .workspace {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(220px, 42svh) minmax(55svh, 1fr);
+    grid-template-rows: minmax(55svh, 55svh) minmax(55svh, 1fr);
     gap: 12px;
   }
 
