@@ -16,13 +16,23 @@
     <main class="page">
       <header class="masthead">
         <h1>Маршруты <span>научных открытий</span></h1>
-          <div class="project-status">КАРТА В РАЗРАБОТКЕ · v0.3</div>
+        <div class="project-status">КАРТА В РАЗРАБОТКЕ · v0.4</div>
       </header>
       <div class="workspace">
         <aside class="expedition-panel" aria-label="Экспедиции">
           <div class="panel-heading">
             <h2>Экспедиции</h2>
             <p class="panel-caption">Исследования и маршруты</p>
+          </div>
+          <div class="expedition-controls" aria-label="Поиск и фильтрация экспедиций">
+            <label for="expedition-search">Поиск</label>
+            <input id="expedition-search" type="search" placeholder="Название или регион" autocomplete="off" />
+            <label for="expedition-region">Регион</label>
+            <select id="expedition-region">
+              <option value="all">Все регионы</option>
+              <option value="Антарктида">Антарктида</option>
+            </select>
+            <button id="expedition-reset" class="expedition-reset" type="button">Сбросить фильтры</button>
           </div>
           <div id="expedition-list" class="expedition-list" aria-label="Список экспедиций" aria-live="polite">Загрузка...</div>
           <div id="expedition-details" class="expedition-details" aria-live="polite"></div>
