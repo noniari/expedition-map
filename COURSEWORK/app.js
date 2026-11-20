@@ -39,8 +39,27 @@ map.on('click', ({ latlng }) => {
 
 const expeditionList = document.querySelector('#expedition-list')
 const expeditionDetails = document.querySelector('#expedition-details')
+const expeditionSearch = document.querySelector('#expedition-search')
+const expeditionRegion = document.querySelector('#expedition-region')
+const expeditionReset = document.querySelector('#expedition-reset')
 let expeditionLayer
 let expeditionGeoJSON
+let selectedExpeditionId
+
+const legendControl = L.control({ position: 'bottomright' })
+legendControl.onAdd = () => {
+  const legend = L.DomUtil.create('div', 'map-legend')
+  legend.innerHTML = `
+    <strong>Условные обозначения</strong>
+    <div class="legend-row"><span class="legend-marker route"></span><span>Маршрут экспедиции</span></div>
+    <div class="legend-row"><span class="legend-marker base">Б</span><span>База или зимовка</span></div>
+    <div class="legend-row"><span class="legend-marker">О</span><span>Остановка наблюдения</span></div>
+    <div class="legend-row"><span class="legend-marker finish">Ф</span><span>Финиш / южный предел</span></div>
+  `
+  L.DomEvent.disableClickPropagation(legend)
+  return legend
+}
+legendControl.addTo(map)
 
 fetch('./expeditions.geojson')
   .then((response) => {
@@ -57,30 +76,13 @@ fetch('./expeditions.geojson')
       throw new Error('В GeoJSON не найдены экспедиции с маршрутами.')
     }
 
-    expeditionList.replaceChildren()
-
-    routes.forEach((route, index) => {
-      const { expeditionId, name, region, period } = route.properties
-      const button = document.createElement('button')
-      button.className = 'expedition-option'
-      button.type = 'button'
-      button.setAttribute('aria-pressed', 'false')
-
-      const title = document.createElement('span')
-      title.className = 'expedition-option-title'
-      title.textContent = name
-
-      const metadata = document.createElement('span')
-      metadata.className = 'expedition-option-meta'
-      metadata.textContent = `${region} · ${period}`
-
-      button.append(title, metadata)
-      button.addEventListener('click', () => selectExpedition(expeditionId, button))
-      expeditionList.append(button)
-
-      if (index === 0) {
-        selectExpedition(expeditionId, button)
-      }
+    renderExpeditionList(routes)
+    expeditionSearch.addEventListener('input', () => renderExpeditionList(routes))
+    expeditionRegion.addEventListener('change', () => renderExpeditionList(routes))
+    expeditionReset.addEventListener('click', () => {
+      expeditionSearch.value = ''
+      expeditionRegion.value = 'all'
+      renderExpeditionList(routes)
     })
   })
   .catch((error) => {
@@ -89,9 +91,60 @@ fetch('./expeditions.geojson')
     baseLayer.addTo(map)
   })
 
+function renderExpeditionList(routes) {
+  expeditionList.replaceChildren()
+  const query = expeditionSearch.value.trim().toLowerCase()
+  const region = expeditionRegion.value
+  const filteredRoutes = routes.filter((route) => {
+    const properties = route.properties
+    const matchesQuery = `${properties.name} ${properties.region} ${properties.period}`.toLowerCase().includes(query)
+    const matchesRegion = region === 'all' || properties.region.includes(region)
+    return matchesQuery && matchesRegion
+  })
+
+  if (filteredRoutes.length === 0) {
+    expeditionList.textContent = 'Экспедиции не найдены.'
+    expeditionDetails.replaceChildren()
+    expeditionLayer?.remove()
+    expeditionLayer = undefined
+    selectedExpeditionId = undefined
+    return
+  }
+
+  filteredRoutes.forEach((route) => {
+    const { expeditionId, name, region, period } = route.properties
+    const button = document.createElement('button')
+    button.className = 'expedition-option'
+    button.type = 'button'
+    button.setAttribute('aria-pressed', String(expeditionId === selectedExpeditionId))
+
+    const title = document.createElement('span')
+    title.className = 'expedition-option-title'
+    title.textContent = name
+
+    const metadata = document.createElement('span')
+    metadata.className = 'expedition-option-meta'
+    metadata.textContent = `${region} · ${period}`
+
+    button.append(title, metadata)
+    button.addEventListener('click', () => selectExpedition(expeditionId, button))
+    expeditionList.append(button)
+  })
+
+  const selectedRouteIsVisible = filteredRoutes.some(
+    (route) => route.properties.expeditionId === selectedExpeditionId,
+  )
+  if (!selectedRouteIsVisible) {
+    const firstRoute = filteredRoutes[0]
+    const firstButton = expeditionList.querySelector('.expedition-option')
+    selectExpedition(firstRoute.properties.expeditionId, firstButton)
+  }
+}
+
 function selectExpedition(expeditionId, selectedButton) {
   const features = expeditionGeoJSON?.features
   if (!features) return
+  selectedExpeditionId = expeditionId
 
   expeditionList.querySelectorAll('.expedition-option').forEach((button) => {
     button.setAttribute('aria-pressed', String(button === selectedButton))
@@ -104,17 +157,27 @@ function selectExpedition(expeditionId, selectedButton) {
   expeditionLayer?.remove()
   expeditionLayer = L.geoJSON({ type: 'FeatureCollection', features: selectedFeatures }, {
     style: (feature) => ({
-      color: feature.properties.color || '#c14f32',
+      color: feature.properties.color || 'sienna',
       weight: 4,
       opacity: 0.9,
     }),
-    pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
-      radius: 7,
-      color: '#ffffff',
-      weight: 2,
-      fillColor: feature.properties.color || '#087e83',
-      fillOpacity: 1,
-    }),
+    pointToLayer: (feature, latlng) => {
+      const markerType = feature.properties.markerType || 'observation'
+      const markerStyles = {
+        base: 'Б',
+        finish: 'Ф',
+        observation: 'О',
+      }
+      const markerSymbol = markerStyles[markerType] || markerStyles.observation
+      const icon = L.divIcon({
+        className: `map-marker-icon ${markerType === 'finish' ? 'finish-marker' : 'base-marker'}`,
+        html: markerSymbol,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14],
+        popupAnchor: [0, -14],
+      })
+      return L.marker(latlng, { icon })
+    },
     onEachFeature: (feature, layer) => {
       const popup = document.createElement('div')
       const title = document.createElement('strong')
